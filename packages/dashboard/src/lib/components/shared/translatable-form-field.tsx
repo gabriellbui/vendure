@@ -117,11 +117,12 @@ export const TranslatableFormFieldWrapper = <
     renderFormControl,
     ...controllerProps
 }: TranslatableFormFieldWrapperProps<TFieldValues>) => {
-    const { name, render } = controllerProps;
+    const { name, render, ...rest } = controllerProps;
     return (
         <LocationWrapper identifier={name as string}>
             <TranslatableFormField
-                {...controllerProps}
+                {...rest}
+                name={name}
                 label={label}
                 render={renderArgs => (
                     <FormItem>

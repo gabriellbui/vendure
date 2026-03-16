@@ -80,11 +80,12 @@ export function FormFieldWrapper<
     renderFormControl = true,
     ...controllerProps
 }: FormFieldWrapperProps<TFieldValues, TName>) {
-    const { name, render } = controllerProps;
+    const { name, render, ...rest } = controllerProps;
     return (
         <LocationWrapper identifier={name}>
             <FormField
-                {...controllerProps}
+                {...rest}
+                name={name}
                 render={renderArgs => (
                     <FormItem>
                         {label && <FormLabel>{label}</FormLabel>}
